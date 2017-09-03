@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  
+  get 'about' => 'welcome#about'
 
-  get 'welcome/about'
+  root 'wikis#index'
+  
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  resources :wikis, :users
 
-  root 'welcome#index'
 end
