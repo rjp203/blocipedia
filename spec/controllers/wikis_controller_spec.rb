@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe WikisController, type: :controller do
 
   let(:my_wiki) { Wiki.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, private: true, user_id: RandomData.random_number) }
+  let(:user) { User.create!(firstname: "Bloccit", lastname: "User", email: "user@bloccit.com", password: "password", role: 0) }
 
   describe "GET #index" do
     it "returns http success" do
