@@ -20,5 +20,5 @@ class User < ActiveRecord::Base
   def welcome_send
     WelcomeMailer.welcome_send(self).deliver_now
   end
-
+  
 end

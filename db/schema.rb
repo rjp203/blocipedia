@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829003858) do
+ActiveRecord::Schema.define(version: 20170905051051) do
+
+  create_table "charges", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +34,9 @@ ActiveRecord::Schema.define(version: 20170829003858) do
     t.string   "firstname"
     t.string   "lastname"
     t.integer  "role"
+    t.string   "stripe_customer_token"
+    t.string   "stripe_id"
+    t.string   "stripe_subscription_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

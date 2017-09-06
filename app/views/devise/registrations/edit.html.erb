@@ -38,9 +38,13 @@
       </div>
     </fieldset>
     <%= f.submit 'Update', :class => 'button right' %>
-  <% end %>
+  <% end %></br>
     <div class="authform">
-      <h3>Cancel Account</h3>
+      <% if @user.role == "standard" %>
+        <p><strong>Want to post private Wikis?  Upgrade to Premium now!</strong></p>
+        <button><%= link_to 'Upgrade to Premium', charges_path, :class => 'button right' %></button>
+      <% end %></br></br>
+      <h4>Cancel Account</h4>
         <p>Unhappy? We'll be sad to see you go!</p>
         <%= button_to "Cancel My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
     </div>
