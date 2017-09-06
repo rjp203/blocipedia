@@ -36,6 +36,9 @@ class ChargesController < ApplicationController
   
   def destroy
     
+    @wikis = current_user.wikis
+    @wikis.update_all(private: false)
+
     current_user.update_attribute(:role, 'standard')
     
     redirect_to root_path, notice: "You have cancelled your Premium membership."
