@@ -28,6 +28,15 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'rails_layout'
 end
 
 gem 'bootstrap-sass'
+gem 'devise'
+gem 'devise_roles'
+gem 'pundit'
+
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'stripe'
+gem 'redcarpet'

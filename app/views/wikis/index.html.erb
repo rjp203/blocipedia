@@ -1,0 +1,21 @@
+<h1>Welcome to Blocipedia!</h1>
+
+<h3>All Wikis</h3>
+  <%= link_to "Create New Wiki", new_wiki_path(@wiki), class: 'btn btn-success' %>
+  <% @wikis.each do |wiki| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <% if current_user.role == "standard" %>
+            <% if wiki.private == false %>
+              <%= link_to wiki.title, wiki %>
+            <% else %>
+              "<%= wiki.title %>" is a private Wiki.  Upgrade your membership to view.
+            <% end %>
+          <% else %>            
+            <%= link_to wiki.title, wiki %>
+          <% end %>
+        </h4>
+      </div>
+    </div>
+  <% end %>

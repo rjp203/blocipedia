@@ -1,0 +1,17 @@
+<div>
+  <h3>User</h3>
+</div>
+<div>
+  <p>Name: <%= @user.firstname %> <%= @user.lastname %></p>
+  <p>Email: <%= @user.email  %></p>
+  <p>Account Level: <%= @user.role.capitalize %></p>
+  <button><%= link_to 'Edit Profile', edit_user_registration_path, :class => 'button right' %></button></br></br>
+  <% if @user.role == "standard" %>
+    <p><strong>Want to post private Wikis?  Upgrade to Premium now!</strong></p>
+    <button><%= link_to 'Upgrade to Premium', new_charge_path, :class => 'button right' %></button>
+  <% end %>
+  <% if @user.role == "premium" %>
+    <p>Want to cancel your Premium membership?</p>
+   <%= link_to 'Downgrade to Standard Membership', charge_path, :data => { :confirm => "Are you sure?"}, :method => :delete %>
+  <% end %>
+</div>
